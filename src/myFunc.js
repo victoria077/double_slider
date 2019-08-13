@@ -1,3 +1,4 @@
+import { userInfo } from "os";
 
 let toggle, bar, toggleLeft, barLeft;
 function init() {
@@ -34,4 +35,3 @@ function onThumbMouseup() {
     document.removeEventListener('mousemove', moveThumb);
     document.removeEventListener('mouseup', onThumbMouseup);
 };
-
