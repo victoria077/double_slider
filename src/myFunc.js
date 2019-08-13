@@ -31,7 +31,7 @@ function moveThumb(event) {
       if (thumbCoord > LimitMovementX.max) {
         thumbCoord = LimitMovementX.max;
       }
-    let g = toggle.css("left", thumbCoord);
+    let gf = toggle.css("left", thumbCoord);
    
 };
 
