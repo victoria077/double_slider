@@ -1,6 +1,6 @@
 import { userInfo } from "os";
 
-let toggle, bar, toggleLeft, barLeft;
+let toggle, toggleLeft, barLeft;
 function init() {
     toggle = $("#slider__toggle");
     toggle.on('mousedown', () => {
@@ -11,27 +11,32 @@ function init() {
         $(document).on('mouseup', onThumbMouseup);
     });
 }
+let LimitMovementX, thumbCoord;
 
-function moveThumb(event) {   
-    
+function moveThumb(event) {
     let bar = $("#slider__bar");
-    let barLeft;
+    let barLeft = bar.offset().left;  
+    let barWidth = bar.outerWidth();
+    let toggleWidth = toggle.outerWidth();
     LimitMovementX = {
-        // min: bar.offsetLeft,
-        // max: bar.offsetLeft + bar.offsetWidth - thumb.offsetWidth,
+        min: barLeft,
+        max: barLeft + barWidth - toggleWidth
       }
       toggleLeft = toggle.offset().left;
-      thumbCoord = toggleLeft + event.pageX;
-      // if (thumbCoord < LimitMovementX.min) {
-      //   thumbCoord = LimitMovementX.min;
-      // }
-      // if (thumbCoord > LimitMovementX.max) {
-      //   thumbCoord = LimitMovementX.max;
-      // }
-    toggle.css("left", thumbCoord);
+      console.log(event.pageX);
+      thumbCoord = toggleLeft;
+      if (thumbCoord < LimitMovementX.min) {
+        thumbCoord = LimitMovementX.min;
+      }
+      if (thumbCoord > LimitMovementX.max) {
+        thumbCoord = LimitMovementX.max;
+      }
+    let g = toggle.css("left", thumbCoord);
+   
 };
 
 function onThumbMouseup() {
-    document.removeEventListener('mousemove', moveThumb);
-    document.removeEventListener('mouseup', onThumbMouseup);
+    $(document).off('mousemove');
+    $(document).off('mouseup');
 };
+
