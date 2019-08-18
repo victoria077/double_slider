@@ -41,13 +41,13 @@
     cursor: pointer;
   } */
   
-  /* .slider__output{
+  #slider__output{
     width: 20px;
     height: 20px;
     border: 1px solid red;
     margin-top: 15px;
-  } */
-/*   
+  } 
+/* 
   .slider__outp2{
      width: 20px;
     height: 20px;

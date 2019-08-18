@@ -8,7 +8,6 @@ describe('Example', () => {
         loadStyleFixtures("style.css");
     });
     it('toggle should move', () => {
-
         init();
         let expectedMovePx = 64;
         let toggle = $("#slider__toggle");
@@ -17,7 +16,7 @@ describe('Example', () => {
         toggle.trigger("mousedown");
         var e = jQuery.Event("mousemove", { pageX: toggleLeftO + expectedMovePx});
         toggle.trigger(e);
-        thumbCoord1 = toggleLeftO + e.pageX - toggleLeftO;
+        // thumbCoord1 = toggleLeftO + e.pageX - toggleLeftO;
         let endPos = toggle.css("left");
         expect(endPos).toEqual(expectedMovePx + "px");
     });
@@ -46,6 +45,20 @@ describe('Example', () => {
         toggle.trigger(e); 
         let endPos = toggle.css("left");
         expect(endPos).toEqual(barLeft + barWidth - toggleWidth -  barLeft + "px");
+    });
+    it('output should move like toggle', () => {
+        init();
+        let expectedMovePx = 64;
+        let toggle = $("#slider__toggle");
+        let bar = $("#slider__bar");
+        let output = $("#slider__output");
+        toggleLeftO = bar.offset().left;
+        toggle.trigger("mousedown");
+        var e = jQuery.Event("mousemove", { pageX: toggleLeftO + expectedMovePx});
+        toggle.trigger(e);
+        let endPos = toggle.css("left");
+        let outputPos = output.css("marginLeft");
+        expect(outputPos).toEqual(endPos);
     });
 });
 

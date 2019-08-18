@@ -1,11 +1,12 @@
-(function($) {
-  $.fn.Slider = function() {
+// (function($) {
+//   $.fn.Slider = function() {
     // var defaults = {};
     // var config = $.extends({}, defaults, options);
 
-    let toggle;
+    let toggle, output;
     function init() {
       toggle = $("#slider__toggle");
+      output = $('#slider__output'),
       toggle.on("mousedown", () => {
         toggle.on("dragstart", e => {
           e.preventDefault();
@@ -36,6 +37,8 @@
       }
       let newthumbCoord = thumbCoord - barLeft;
       toggle.css("left", newthumbCoord);
+      output.text(newthumbCoord);
+      output.css("marginLeft",  newthumbCoord);
     }
 
     function onThumbMouseup() {
@@ -49,6 +52,6 @@
       });
     }
     init();
-    return this;
-  };
-})(jQuery);
+    // return this;
+  // };
+// })(jQuery);
