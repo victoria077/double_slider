@@ -1,18 +1,21 @@
-// (function($) {
-//   $.fn.Slider = function() {
+(function($) {
+  $.fn.Slider = function() {
     // var defaults = {};
     // var config = $.extends({}, defaults, options);
 
-    let toggle, output;
+    let toggle, output, min, max;
     function init() {
+      min = 10;
+      max= 200;
       toggle = $("#slider__toggle");
-      output = $('#slider__output'),
+      output = $('#slider__output');
+      output.text(min);
       toggle.on("mousedown", () => {
         toggle.on("dragstart", e => {
           e.preventDefault();
         });
         $(document).on("mousemove", moveToggle);
-        $(document).on("mousemove", moveThumb);
+        $(document).on("mousemove", moveThumb); 
         $(document).on("mouseup", onThumbMouseup);
       });
     }
@@ -37,10 +40,9 @@
       }
       let newthumbCoord = thumbCoord - barLeft;
       toggle.css("left", newthumbCoord);
-      output.text(newthumbCoord);
+      output.text(min + newthumbCoord * (max - min) / LimitMovementX.max ^ 0);
       output.css("marginLeft",  newthumbCoord);
     }
-
     function onThumbMouseup() {
       $(document).off("mousemove");
       $(document).off("mouseup");
@@ -52,6 +54,6 @@
       });
     }
     init();
-    // return this;
-  // };
-// })(jQuery);
+    return this;
+  };
+})(jQuery);

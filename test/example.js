@@ -8,7 +8,7 @@ describe('Example', () => {
         loadStyleFixtures("style.css");
     });
     it('toggle should move', () => {
-        init();
+        $("#slider1").Slider();
         let expectedMovePx = 64;
         let toggle = $("#slider__toggle");
         let bar = $("#slider__bar");
@@ -21,7 +21,7 @@ describe('Example', () => {
         expect(endPos).toEqual(expectedMovePx + "px");
     });
     it('toggle should have a limitation on the left', () => {
-        init();
+        $("#slider1").Slider();
         let toggle = $("#slider__toggle");
         let bar = $("#slider__bar");
         toggleLeftO = bar.offset().left;
@@ -32,7 +32,7 @@ describe('Example', () => {
         expect(endPos).toEqual("0px");
     });
     it('toggle should have a limitation on the right', () => {
-        init();
+        $("#slider1").Slider();
         let expectedMovePx = 900;
         let toggle = $("#slider__toggle");
         let bar = $("#slider__bar");
@@ -47,7 +47,7 @@ describe('Example', () => {
         expect(endPos).toEqual(barLeft + barWidth - toggleWidth -  barLeft + "px");
     });
     it('output should move like toggle', () => {
-        init();
+        $("#slider1").Slider();
         let expectedMovePx = 64;
         let toggle = $("#slider__toggle");
         let bar = $("#slider__bar");
