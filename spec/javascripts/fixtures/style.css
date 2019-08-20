@@ -41,7 +41,7 @@
     cursor: pointer;
   } */
   
-  #slider__output{
+  .slider__output{
     width: 20px;
     height: 20px;
     border: 1px solid red;
