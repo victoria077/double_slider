@@ -29,6 +29,18 @@
     border-radius: 50%;
     cursor: pointer;
   }
+
+    
+  .slider__toggle2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    background-color: lightblue;
+    border-radius: 50%;
+    cursor: pointer;
+  }
 /*   
   .slider__toggle2 {
     position: absolute;
@@ -46,6 +58,13 @@
     height: 20px;
     border: 1px solid red;
     margin-top: 15px;
+  } 
+
+    
+  .slider__output2{
+    width: 20px;
+    height: 20px;
+    border: 1px solid red;
   } 
 /* 
   .slider__outp2{
