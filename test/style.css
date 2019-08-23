@@ -19,6 +19,22 @@
     background-color: gray;
   }
   
+  .sliderY {
+    position: relative;
+    height: 300px;
+    margin: 0 auto;
+    padding: 15px 0;
+    outline: 1px solid red;
+    user-select: none;
+  }
+  
+  .slider__barY {
+    width: 2px;
+    height: 100%;
+    margin-left: 15px;
+    background-color: gray;
+  }
+
   .slider__toggle {
     position: absolute;
     left: 0;
