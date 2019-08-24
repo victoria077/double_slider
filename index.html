@@ -12,7 +12,7 @@
     <div class="wrapper">
       <div class="slider" id="slider1">
         <div class="slider__bar" id="slider__bar">
-          <div class="slider__toggle" id="slider__toggle">dd</div>
+          <div class="slider__toggle" id="slider__toggle"></div>
         </div>
         <!-- <div id="slider__output" class="slider__output"></div> -->
       </div>
@@ -20,7 +20,7 @@
     <script src="src/myFunc.js"></script>
     <script>
       $(function() {
-        $("#slider1").Slider({minPos: 0,  step: 2});
+        $("#slider1").Slider({minPos: 0,  step: 2, vertical: true});
       })
     </script>
   </body>

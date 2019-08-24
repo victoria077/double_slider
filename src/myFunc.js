@@ -7,7 +7,7 @@
       output: true,
       input: true,
       doublerange: true,
-      vertical:false
+
     };
     let config = $.extend({}, defaults, options);
     let output = config.output;
@@ -26,7 +26,6 @@
       barWidth,
       barHeight,
       toggleWidth2,
-      barY,
       barTop;
 
 
@@ -41,6 +40,12 @@
         $("#slider__output")
           .removeClass("slider__output")
           .addClass("slider__outputY");
+        $("#slider__output2")
+          .removeClass("slider__output2")
+          .addClass("slider__output2Y");
+          $("#slider__toggle2")
+          .removeClass("slider__toggle2")
+          .addClass("slider__toggle2Y");
       }
       bar = $("#slider__bar");
       toggle = $("#slider__toggle");
@@ -135,7 +140,7 @@
         let leftPosY = Math.round((newthumbCoordY / stepSizeY) * stepSizeY);
         let fffY = Math.round(leftPosY / stepSizeY);
         toggle.css("top", leftPosY);
-        output1.css("marginTop", leftPosY);
+        output1.css("marginTop", leftPosY - barHeight);
         output1.text(Math.round(fffY * config.step + config.minPos));
         input1.val(Math.round(fffY * config.step + config.minPos));
       } else {
@@ -152,18 +157,19 @@
         if (thumbCoord > LimitMovementX.max) {
           thumbCoord = LimitMovementX.max;
         }
-        let stepCount = (config.maxPos - config.minPos) / config.step;
-        let stepSize = (barWidth - toggleWidth) / stepCount;
-        let newthumbCoord = thumbCoord - barLeft;
-        let leftPos = Math.round(newthumbCoord / stepSize) * stepSize;
-        let fff = leftPos / stepSize;
+        var stepCount = (config.maxPos - config.minPos) / config.step;
+        var stepSize = (barWidth - toggleWidth) / stepCount;
+        var newthumbCoord = thumbCoord - barLeft;
+        var leftPos = Math.round(newthumbCoord / stepSize) * stepSize;
+        var fff = leftPos / stepSize;
         toggle.css("left", leftPos);
         output1.css("marginLeft", leftPos);
         output1.text(Math.round(fff * config.step + config.minPos));
-        input1.val(Math.round(fff * config.step + config.minPos));
-      }
+        input1.val(Math.round(leftPos / stepSize * config.step + config.minPos));  
     }
 
+
+   }
     function onThumbMouseup() {
       $(document).off("mousemove");
       $(document).off("mouseup");
@@ -183,28 +189,54 @@
     }
 
     function moveThumb2(event) {
-      let toggleWidth2 = toggle.outerWidth();
-      LimitMovementX = {
-        min2: barLeft,
-        max2: barLeft + barWidth - toggleWidth2
-      };
+      if (vertical) {
+        let toggleHeight2 = toggle2.outerHeight();
+        LimitMovementY = {
+          min: barTop,
+          max: barTop + barHeight - toggleHeight2
+        };
 
-      thumbCoord2 = event.pageX;
-      if (thumbCoord2 < LimitMovementX.min2) {
-        thumbCoord2 = LimitMovementX.min2;
+        let thumbCoordY2 = event.pageY;
+        if (thumbCoordY2 < LimitMovementY.min) {
+          thumbCoordY2= LimitMovementY.min;
+        }
+        if (thumbCoordY2 > LimitMovementY.max) {
+          thumbCoordY2 = LimitMovementY.max;
+        }
+        let stepCountY2 = (config.maxPos - config.minPos) / config.step;
+        let stepSizeY2 = (barHeight - toggleHeight2) / stepCountY2;
+        let newthumbCoordY2 = thumbCoordY2 - barTop;
+        let leftPosY2 = Math.round((newthumbCoordY2 / stepSizeY2) * stepSizeY2);
+        let fffY2 = Math.round(leftPosY2 / stepSizeY2);
+        toggle2.css("top", leftPosY2);
+        output2.css("marginTop", leftPosY2 - barHeight);
+        output2.text(Math.round(fffY2 * config.step + config.minPos));
+        input2.val(Math.round(fffY2 * config.step + config.minPos));
+      } 
+      else{
+        let toggleWidth2 = toggle.outerWidth();
+        LimitMovementX = {
+          min2: barLeft,
+          max2: barLeft + barWidth - toggleWidth2
+        };
+  
+        thumbCoord2 = event.pageX;
+        if (thumbCoord2 < LimitMovementX.min2) {
+          thumbCoord2 = LimitMovementX.min2;
+        }
+        if (thumbCoord2 > LimitMovementX.max2) {
+          thumbCoord2 = LimitMovementX.max2;
+        }
+        let stepCount2 = (config.maxPos - config.minPos) / config.step;
+        let stepSize2 = (barWidth - toggleWidth2) / stepCount2;
+        let newthumbCoord2 = thumbCoord2 - barLeft;
+        let leftPos2 = Math.round(newthumbCoord2 / stepSize2) * stepSize2;
+        let fff = leftPos2 / stepSize2;
+        toggle2.css("left", leftPos2);
+        output2.css("marginLeft", leftPos2);
+        output2.text(Math.round(fff * config.step + config.minPos));
+        input2.val(Math.round(fff * config.step + config.minPos));
       }
-      if (thumbCoord2 > LimitMovementX.max2) {
-        thumbCoord2 = LimitMovementX.max2;
-      }
-      let stepCount2 = (config.maxPos - config.minPos) / config.step;
-      let stepSize2 = (barWidth - toggleWidth2) / stepCount2;
-      let newthumbCoord2 = thumbCoord2 - barLeft;
-      let leftPos2 = Math.round(newthumbCoord2 / stepSize2) * stepSize2;
-      let fff = leftPos2 / stepSize2;
-      toggle2.css("left", leftPos2);
-      output2.css("marginLeft", leftPos2);
-      output2.text(Math.round(fff * config.step + config.minPos));
-      input2.val(Math.round(fff * config.step + config.minPos));
     }
 
     function onThumbMouseup2() {
