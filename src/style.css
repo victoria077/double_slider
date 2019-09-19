@@ -1,56 +1,96 @@
-.wrapper {
-    display: flex;
-    padding: 20px;
-    outline: 1px solid black;
-  }
+/* .wrapper {
+  display: flex;
+  padding: 20px;
+}
+
+.slider {
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
+  padding: 15px 0;
+  user-select: none;
+}
+
+.slider__bar {
+  width: 100%;
+  height: 2px;
+  background-color: gray;
+}
+
+.sliderY {
+  position: relative;
+  height: 300px;
+  margin: 0 auto;
+  user-select: none;
+}
+
+.slider__barY {
+  width: 2px;
+  height: 100%;
+  margin-left: 15px;
+  background-color: gray;
+}
+
+.slider__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  background-color: lightblue;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
   
-  .slider {
-    position: relative;
-    width: 500px;
-    margin: 0 auto;
-    padding: 15px 0;
-    outline: 1px solid red;
-    user-select: none;
-  }
+.slider__toggle2 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  background-color: lightblue;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider__toggle2Y {
+  position: absolute;
+  bottom: 0;
+  width: 32px;
+  height: 32px;
+  background-color: lightblue;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: -15px;
+}
+
+.slider__output{
+  width: 20px;
+  height: 20px;
+  margin-top: 15px;
+} 
+
+.slider__outputY{
+  position: absolute;
+  margin-left: 45px;
+  margin-top: -300px;
+  width: 20px;
+  height: 20px;
+} 
+
   
-  .slider__bar {
-    width: 100%;
-    height: 2px;
-    background-color: gray;
-  }
-  
-  .slider__toggle {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 32px;
-    height: 32px;
-    background-color: lightblue;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  
-  /* .slider__toggle2 {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 32px;
-    height: 32px;
-    background-color: lightblue;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  
-  .slider__outp{
-    width: 20px;
-    height: 20px;
-    border: 1px solid red;
-    margin-top: 15px;
-  }
-  
-  .slider__outp2{
-     width: 20px;
-    height: 20px;
-    border: 1px solid red;
-     margin-top: -22px;
-  } */
+.slider__output2{
+  width: 20px;
+  height: 20px;
+  margin-top: -20px;
+} 
+
+.slider__output2Y{
+  position: absolute;
+  margin-left: 45px;
+  margin-top: -25px;
+  width: 20px;
+  height: 20px;
+
+}  */
