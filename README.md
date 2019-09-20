@@ -46,3 +46,5 @@ An example of a customised slider:
      minPos: 0, maxPos: 700;  step: 10, vertical: true, doublerange: true, output: true, input: true;
 });
 
+UML-DIAGRAM
+https://drive.google.com/file/d/1ce3BybO45Iv3_WPoWaWLHALLDmZQGa1R/view?usp=sharing
